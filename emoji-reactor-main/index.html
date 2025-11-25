@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emoji Pose Detector</title>
+</head>
+<body style="background:#202020;color:white;text-align:center;">
+    <h1>🤖 Real-time Emoji Detector</h1>
+    <img src="/video_feed" width="480" height="320" style="border:2px solid white;">
+    <h2>Current State: <span id="state">STRAIGHT_FACE 😐</span></h2>
+    <script>
+    setInterval(() => {
+        fetch('/state')
+            .then(res => res.text())
+            .then(text => document.getElementById('state').innerText = text);
+    }, 200);
+    </script>
+</body>
+</html>
